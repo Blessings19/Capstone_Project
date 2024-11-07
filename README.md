@@ -23,8 +23,9 @@ Exploratory Data Analysis (EDA) is the process involving the analysis of the dat
 - What products are top selling?
 - Which regions are in high performance?
 
-Data Dictionary
-Outline the terminology and definitions of key column headers specific to the dataset. This section ensures clarity for anyone reviewing the project.
+### Data Dictionary
+----------------------
+Provided in this section is the deccription of the terminologies as used in this project.
 1. OrderID: A unique number that identifies each order (row of record).
 2. Customer ID: A unique number assigned to each customer to keep track of the details of their orders.
 3. Product: The name of item sold.
@@ -35,6 +36,12 @@ Outline the terminology and definitions of key column headers specific to the da
 8. Total_Sales: The total money made from an order, calculated by multiplying the quantity by the unit price.
 
 ### Data Analysis
+------------------
+Retrieving the total sales for each product category
+```SQL
+select Product, sum(Total_Sales) as Product_Total_Sales from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Product
+```
 
 
-### Attached are screenshots of the output of the cleaned dataset.2222
+
+### Attached are screenshots of the output of the 
