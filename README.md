@@ -41,7 +41,22 @@ Retrieving the total sales for each product category
 ```SQL
 select Product, sum(Total_Sales) as Product_Total_Sales from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Product
 ```
-
+Finding the number of sales transactions in each region
+```SQL
+select Region, sum(Quantity) as Region_Total_Sales from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Region
+```
+Finding the highest-selling product by total sales value
+```SQL
+select top 1 Product, sum(Total_Sales) as Total_Sales from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Product order by Total_Sales desc
+```
+Calculating total revenue per product
+```SQL
+select Product, sum(Quantity * UnitPrice) as Total_Revenue from [dbo].[SalesData$_xlnm#_FilterDatabase] group by product order by Total_Revenue desc
+```
+Finding the top 5 customers by total purchase amount
+```SQL
+select top 5 Customer_Id, sum(Total_Sales) as Total_Purchase from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Customer_Id order by Total_Purchase desc
+```
 
 
 ### Attached are screenshots of the output of the 
