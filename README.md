@@ -57,6 +57,31 @@ Finding the top 5 customers by total purchase amount
 ```SQL
 select top 5 Customer_Id, sum(Total_Sales) as Total_Purchase from [dbo].[SalesData$_xlnm#_FilterDatabase] group by Customer_Id order by Total_Purchase desc
 ```
+Identifying products with no sales in the last quarter
+```SQL
+Select distinct Product
+From [dbo].[SalesData$_xlnm#_FilterDatabase]
+Where Product Not In(
+Select Product
+From [dbo].[SalesData$_xlnm#_FilterDatabase]
+Where OrderDate >= DateAdd(quarter, -1, GetDate()) and OrderDate < GetDate())
+```
+
+### Data Visualization
+---
+
+![image](https://github.com/user-attachments/assets/f15ff133-413e-4c69-9214-165973e12f06)
+
+### Conclusion
+The analysis revealed that Shoes generated the highest revenue with a sum of #3,087,500 and as such, is the highest selling product, while Socks generate the least revenue with a total of #912,500. In terms of regional performance, the South region had the highest sale of #122,500, while the West had the least, amounting to #57,500.
+
+When looking at total quantities sold per product, Hats rank the highest, while Jackets have the lowest sales volume. Regional data shows that Hats, Jackets, and Shirts are not selling in the South region. Regarding monthly sales for the current year, February leads in sales, followed by January, with July being the lowest.
+
+### Recommendation
+Increase Sales of Low-Selling Items: Promotions or bundles to boost sales of low-selling items like Socks and Jackets by pairing them with popular items like Shoes.
+
+Focus on Low-Performing Regions: Special campaigns promotion should be carried out to boost sales in the West region and investigate why certain items aren’t selling in the South such as getting feedbacks from customers their options of the products, inorder to make any necessary adjustments.
+
+Boost Sales in Low Months: Since February had strong sales, study the sales trends and use similar strategies or promotions in slower months like July to improve sales during those times. I believe onces these suggestions are implemented, we will see a increase in revenue inflow in the upcoming months.
 
 
-### Attached are screenshots of the output of the 
